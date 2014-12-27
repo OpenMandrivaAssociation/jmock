@@ -4,9 +4,9 @@
 
 Name:          jmock
 Version:       2.5.1
-Release:       4.0%{?dist}
+Release:       7.1
 Summary:       Java library for testing code with mock objects
-
+Group:		Development/Java
 License:       BSD
 Url:           http://www.jmock.org/
 # svn export http://svn.codehaus.org/jmock/tags/2.5.1 jmock-2.5.1
@@ -43,13 +43,13 @@ BuildRequires: ant-junit
 BuildRequires: bsh
 BuildRequires: cglib
 BuildRequires: hamcrest12
-BuildRequires: junit4
+BuildRequires: junit
 BuildRequires: objectweb-asm3
 BuildRequires: objenesis
 
 Requires:      bsh
 Requires:      hamcrest12
-Requires:      junit4
+Requires:      junit
 
 Requires:      objenesis
 Requires:      java >= 1:1.6.0
@@ -81,6 +81,9 @@ This package contains javadoc for %{name}.
 %patch0 -p0
 sed -i "s|objectweb-asm/asm.jar|objectweb-asm3/asm.jar|" build.xml
 sed -i "s|objenesis|objenesis/objenesis|" build.xml
+sed -i "s|hamcrest12/core.jar|hamcrest12/hamcrest-core-1.2.jar|" build.xml
+sed -i "s|hamcrest12/library.jar|hamcrest12/hamcrest-library-1.2.jar|" build.xml
+sed -i "s|junit4.jar|junit.jar|" build.xml
 %patch1 -p1
 %patch2 -p0
 %patch3 -p0
@@ -135,11 +138,8 @@ install -pm 644 maven/%{name}-core/pom.xml %{buildroot}%{_mavenpomdir}/JPP.%{nam
 mkdir -p %{buildroot}%{_javadocdir}/%{name}
 cp -pr build/%{name}-%{namedversion}/doc/* %{buildroot}%{_javadocdir}/%{name}
 
-%files
+%files -f .mfiles
 %dir %{_javadir}/%{name}
-%{_javadir}/%{name}/*.jar
-%{_mavenpomdir}/JPP.%{name}-*.pom
-%{_mavendepmapfragdir}/%{name}
 %doc LICENSE.txt README*
 
 %files javadoc
