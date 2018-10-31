@@ -4,7 +4,7 @@
 
 Name:          jmock
 Version:       2.5.1
-Release:       7.2
+Release:       7.3
 Summary:       Java library for testing code with mock objects
 Group:		Development/Java
 License:       BSD
