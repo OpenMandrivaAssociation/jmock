@@ -8,7 +8,7 @@ Release:       7.3
 Summary:       Java library for testing code with mock objects
 Group:		Development/Java
 License:       BSD
-Url:           http://www.jmock.org/
+Url:           https://www.jmock.org/
 # svn export http://svn.codehaus.org/jmock/tags/2.5.1 jmock-2.5.1
 # find jmock-2.5.1 -name "*.jar" -type f -delete
 # find jmock-2.5.1 -name "*.class" -delete
